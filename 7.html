@@ -36,11 +36,11 @@
         flex-direction: column;
         padding: 60px 80px;
         box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        box-sizing: border-box;
       }
 
-      /* Header */
       .header {
-        margin-bottom: 40px;
+        margin-bottom: 30px;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
@@ -68,6 +68,7 @@
         color: #86868b;
         font-weight: 500;
         text-transform: uppercase;
+        padding-bottom: 5px;
       }
 
       .legend-item {
@@ -86,7 +87,7 @@
       .comparison-table {
         width: 100%;
         border-collapse: separate;
-        border-spacing: 0 12px; /* Espaço entre as linhas */
+        border-spacing: 0 10px;
       }
 
       .comparison-table th {
@@ -100,8 +101,11 @@
       }
 
       .comparison-table td {
-        padding: 20px;
+        padding: 12px 20px;
         vertical-align: middle;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       /* Row Styles */
@@ -226,6 +230,12 @@
         border: 1px solid #fcd34d;
       }
 
+      .badge-info {
+        background-color: #e0f2fe;
+        color: #0284c7;
+        border: 1px solid #bae6fd;
+      }
+
       /* Icons */
       .icon-col {
         width: 24px;
@@ -260,7 +270,7 @@
       <!-- Header -->
       <div class="header">
         <div>
-          <h1>Comparativo</h1>
+          <h1>Comparativo Final</h1>
           <p>Melhores Opções de Investimento - De Estudante à Arquiteta</p>
         </div>
         <div class="legend">
@@ -318,7 +328,6 @@
             </td>
             <td>
               <div class="price">~R$ 5.200</div>
-
             </td>
           </tr>
 
@@ -326,7 +335,7 @@
           <tr class="row-card">
             <td>
               <span class="model-name">Lenovo LOQ</span>
-              <span class="spec-detail">Equilíbrio</span>
+              <span class="spec-detail">Equilíbrado e Barato</span>
             </td>
             <td>
               <span class="spec-detail"
@@ -379,7 +388,7 @@
             <td>
               <div class="price">~R$ 5.400</div>
               <div class="badge badge-warn" style="margin-top: 4px">
-                Upgrade Recomendado
+                Expansão Recomendada
               </div>
             </td>
           </tr>
@@ -410,7 +419,37 @@
             <td>
               <div class="price">~R$ 5.500</div>
               <div class="badge badge-warn" style="margin-top: 4px">
-                Upgrade Recomendado
+                Expansão Recomendada
+              </div>
+            </td>
+          </tr>
+
+          <tr class="row-card">
+            <td>
+              <span class="model-name">Dell G15 5530</span>
+              <span class="spec-detail">Performance Bruta</span>
+            </td>
+            <td>
+              <span class="spec-detail highlight-text"
+                ><i class="fa-solid fa-server icon-col"></i>Core
+                i5-13450HX</span
+              >
+            </td>
+            <td>
+              <span class="spec-detail"
+                ><i class="fa-solid fa-vr-cardboard icon-col"></i>RTX 3050
+                (6GB)</span
+              >
+            </td>
+            <td>
+              <span class="spec-detail"
+                ><i class="fa-solid fa-memory icon-col"></i>8GB / 16GB</span
+              >
+            </td>
+            <td>
+              <div class="price">~R$ 5.800</div>
+              <div class="badge badge-info" style="margin-top: 4px">
+                mais potente
               </div>
             </td>
           </tr>

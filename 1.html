@@ -13,11 +13,10 @@
       rel="stylesheet"
     />
     <style>
-      /* Reset & Base */
       body {
         margin: 0;
         padding: 0;
-        background-color: #1d1d1f; /* Fundo escuro para contraste na apresentação */
+        background-color: #1d1d1f;
         font-family: "Inter", sans-serif;
         overflow: hidden;
         display: flex;
@@ -26,7 +25,6 @@
         height: 100vh;
       }
 
-      /* Slide Container - Fixed Aspect Ratio 16:9 */
       .slide-container {
         width: 1280px;
         height: 720px;
@@ -37,7 +35,6 @@
         box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
       }
 
-      /* Left Column: Title & Context */
       .left-col {
         width: 45%;
         background-color: #f5f5f7;
@@ -49,7 +46,6 @@
         z-index: 2;
       }
 
-      /* Right Column: Criteria Grid */
       .right-col {
         width: 55%;
         background-color: #ffffff;
@@ -60,7 +56,6 @@
         position: relative;
       }
 
-      /* Typography */
       h1 {
         font-size: 56px;
         line-height: 1.1;
@@ -86,7 +81,6 @@
         border-radius: 3px;
       }
 
-      /* Criteria Cards */
       .criteria-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -133,7 +127,6 @@
         line-height: 1.4;
       }
 
-      /* Footer Info */
       .footer-info {
         position: absolute;
         bottom: 40px;
@@ -145,7 +138,6 @@
         text-transform: uppercase;
       }
 
-      /* Decorative Background Elements */
       .bg-circle {
         position: absolute;
         width: 600px;
@@ -177,7 +169,6 @@
       }
     </style>
   </head>
-  <!-- data-next define manualmente o próximo slide, já que unificamos 1 e 2 -->
   <body data-next="3.html">
     <div class="slide-container">
       <!-- Left Column -->
@@ -189,11 +180,12 @@
           >
         </h1>
         <p class="subtitle">
-          Parametros de pesquisa focados em <strong>Renderização, Processamento e Durabilidade</strong>.
+          Parametros de pesquisa focados em
+          <strong>Renderização, Processamento e Durabilidade</strong>.
         </p>
 
         <div class="footer-info">
-          Atualizado: 12/02/2026 • Orçamento Médio: R$ 5.000
+          Atualizado: 12/02/2026 • Orçamento Médio: R$ 5.300
         </div>
       </div>
 
@@ -220,8 +212,8 @@
             <div class="icon-box"><i class="fa-solid fa-vr-cardboard"></i></div>
             <div class="card-title">GPU Dedicada (RTX)</div>
             <div class="card-desc">
-              Essencial para renderização (Sketchup/V-Ray). Mínimo RTX 3050, ideal
-              RTX 4050 para DLSS 3.
+              Essencial para renderização (Sketchup/V-Ray). Mínimo RTX 3050,
+              ideal RTX 4050 para DLSS 3.
             </div>
           </div>
 
@@ -250,8 +242,8 @@
             <div class="icon-box"><i class="fa-brands fa-linux"></i></div>
             <div class="card-title">Estratégia de Custo</div>
             <div class="card-desc">
-              Aquisição com Linux para reduzir custo de
-              licença e focar em performance de hardware.
+              Aquisição com Linux para reduzir custo de licença e focar em
+              performance de hardware.
             </div>
           </div>
         </div>

@@ -36,10 +36,9 @@
         box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
       }
 
-      /* Left Column: Visual Hero - DIFERENÇA: Fundo Claro para opções padrão */
       .visual-col {
         width: 40%;
-        background-color: #f5f5f7; /* Cinza claro ao invés do escuro do Slide 5 */
+        background-color: #f5f5f7;
         display: flex;
         flex-direction: column;
         justify-content: end;
@@ -54,7 +53,7 @@
         max-width: 270px;
         height: auto;
         object-fit: contain;
-        filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.15)); /* Sombra mais suave */
+        filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.15));
         margin-bottom: 40px;
         transition: transform 0.3s ease;
       }
@@ -80,13 +79,13 @@
       .price-value {
         font-size: 32px;
         font-weight: 700;
-        color: #1d1d1f; /* Texto escuro pois o fundo é claro */
+        color: #1d1d1f;
       }
 
       /* Right Column: Content */
       .content-col {
         width: 60%;
-        padding: 100px 70px; /* Ajuste de padding para alinhar */
+        padding: 100px 70px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -103,7 +102,7 @@
       h2 {
         font-size: 18px;
         font-weight: 500;
-        color: #3b82f6; /* Lenovo Blue Accent */
+        color: #3b82f6;
         margin: 0 0 30px 0;
         text-transform: uppercase;
         letter-spacing: 0.02em;
@@ -209,7 +208,10 @@
           src="assets/lenovo-loq.png"
           alt="Lenovo LOQ"
           class="product-image"
-          onerror="this.src='https://placehold.co/400x300/e2e8f0/1d1d1f?text=Lenovo+LOQ'"
+          onerror="
+            this.src =
+              'https://placehold.co/400x300/e2e8f0/1d1d1f?text=Lenovo+LOQ'
+          "
         />
 
         <div class="price-tag">
@@ -233,7 +235,9 @@
             </div>
           </div>
           <div class="spec-item">
-            <div class="spec-icon"><i class="fa-solid fa-vr-cardboard"></i></div>
+            <div class="spec-icon">
+              <i class="fa-solid fa-vr-cardboard"></i>
+            </div>
             <div class="spec-info">
               <div>Placa de Vídeo</div>
               <div>RTX 3050 (4GB)</div>
@@ -258,7 +262,11 @@
         <!-- Analysis -->
         <div class="analysis-box">
           <div class="analysis-text">
-            <strong>Análise Técnica:</strong> Sucessor da linha Gaming 3i, o LOQ herda o sistema de refrigeração traseira da linha premium "Legion". Possui um design mais quadrado e corporativo, ideal para escritórios. O teclado é um dos melhores da categoria para digitação prolongada.
+            <strong>Análise Técnica:</strong> Sucessor da linha Gaming 3i, o LOQ
+            herda o sistema de refrigeração traseira da linha premium "Legion".
+            Possui um design mais quadrado e corporativo, ideal para
+            escritórios. O teclado é um dos melhores da categoria para digitação
+            prolongada.
           </div>
         </div>
 

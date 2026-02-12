@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Comparativo</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset & Base */
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #1d1d1f;
+        font-family: "Inter", sans-serif;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .slide-container {
+        width: 1280px;
+        height: 720px;
+        background-color: #ffffff;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        padding: 60px 80px;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Header */
+      .header {
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+
+      .header h1 {
+        font-size: 42px;
+        font-weight: 700;
+        color: #1d1d1f;
+        margin: 0;
+        line-height: 1;
+      }
+
+      .header p {
+        font-size: 16px;
+        color: #86868b;
+        margin: 10px 0 0 0;
+        font-weight: 400;
+      }
+
+      .legend {
+        display: flex;
+        gap: 20px;
+        font-size: 12px;
+        color: #86868b;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+
+      /* Table Styling */
+      .comparison-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 12px; /* Espaço entre as linhas */
+      }
+
+      .comparison-table th {
+        text-align: left;
+        font-size: 11px;
+        text-transform: uppercase;
+        color: #86868b;
+        font-weight: 600;
+        padding: 0 20px 10px 20px;
+        letter-spacing: 0.05em;
+      }
+
+      .comparison-table td {
+        padding: 20px;
+        vertical-align: middle;
+      }
+
+      /* Row Styles */
+      .row-card {
+        background-color: #f5f5f7;
+        border-radius: 20px;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .row-card td:first-child {
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+      }
+
+      .row-card td:last-child {
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+      }
+
+      .row-card:hover {
+        transform: scale(1.01);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Champion Row (Dark Theme) */
+      .row-champion {
+        background: linear-gradient(135deg, #1d1d1f 0%, #2c2c2e 100%);
+        color: white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        position: relative;
+        z-index: 10;
+      }
+
+      .row-champion:hover {
+        transform: scale(1.02);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .row-champion td {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-left: none;
+        border-right: none;
+      }
+
+      .row-champion td:first-child {
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .row-champion td:last-child {
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Typography inside table */
+      .model-name {
+        font-weight: 700;
+        font-size: 15px;
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .row-champion .model-name {
+        color: #fff;
+        font-size: 18px;
+      }
+      .row-card:not(.row-champion) .model-name {
+        color: #1d1d1f;
+      }
+
+      .spec-detail {
+        font-size: 13px;
+        display: block;
+      }
+
+      .row-champion .spec-detail {
+        color: #a1a1a6;
+      }
+      .row-card:not(.row-champion) .spec-detail {
+        color: #6e6e73;
+      }
+
+      .price {
+        font-weight: 700;
+        font-size: 16px;
+      }
+
+      .row-champion .price {
+        color: #fff;
+        font-size: 20px;
+      }
+      .row-card:not(.row-champion) .price {
+        color: #1d1d1f;
+      }
+
+      /* Badges */
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .badge-winner {
+        background-color: #0071e3;
+        color: white;
+        border-radius: 20px;
+      }
+
+      .badge-neutral {
+        background-color: #e5e5e5;
+        color: #1d1d1f;
+      }
+
+      .badge-warn {
+        background-color: #fffbeb;
+        color: #d97706;
+        border: 1px solid #fcd34d;
+      }
+
+      /* Icons */
+      .icon-col {
+        width: 24px;
+        text-align: center;
+        margin-right: 8px;
+        display: inline-block;
+      }
+
+      .highlight-text {
+        color: #0071e3;
+        font-weight: 600;
+      }
+
+      .row-champion .highlight-text {
+        color: #2997ff;
+      }
+
+      /* Footer Note */
+      .footer-note {
+        margin-top: auto;
+        padding-top: 20px;
+        border-top: 1px solid #e5e5e5;
+        font-size: 12px;
+        color: #86868b;
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container">
+      <!-- Header -->
+      <div class="header">
+        <div>
+          <h1>Comparativo</h1>
+          <p>Melhores Opções de Investimento - De Estudante à Arquiteta</p>
+        </div>
+        <div class="legend">
+          <div class="legend-item">
+            <div class="dot" style="background: #1d1d1f"></div>
+            Recomendado
+          </div>
+          <div class="legend-item">
+            <div
+              class="dot"
+              style="background: #f5f5f7; border: 1px solid #ccc"
+            ></div>
+            Alternativas
+          </div>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th style="width: 25%">Modelo</th>
+            <th style="width: 20%">Processamento (CPU)</th>
+            <th style="width: 20%">Renderização (GPU)</th>
+            <th style="width: 15%">Memória RAM</th>
+            <th style="width: 20%">Investimento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- CHAMPION ROW -->
+          <tr class="row-card row-champion">
+            <td>
+              <div class="badge badge-winner" style="margin-bottom: 8px">
+                <i class="fa-solid fa-star"></i> Recomendação
+              </div>
+              <span class="model-name">Acer Nitro V15</span>
+              <span class="spec-detail">Melhor Custo Benefício</span>
+            </td>
+            <td>
+              <span class="spec-detail"
+                ><i class="fa-solid fa-microchip icon-col"></i>Ryzen 7
+                7735HS</span
+              >
+            </td>
+            <td>
+              <span class="spec-detail highlight-text"
+                ><i class="fa-solid fa-vr-cardboard icon-col"></i>RTX 4050
+                (6GB)</span
+              >
+            </td>
+            <td>
+              <span class="spec-detail highlight-text"
+                ><i class="fa-solid fa-memory icon-col"></i>16GB DDR5</span
+              >
+            </td>
+            <td>
+              <div class="price">~R$ 5.200</div>
+
+            </td>
+          </tr>
+
+          <!-- Lenovo LOQ -->
+          <tr class="row-card">
+            <td>
+              <span class="model-name">Lenovo LOQ</span>
+              <span class="spec-detail">Equilíbrio</span>
+            </td>
+            <td>
+              <span class="spec-detail"
+                ><i class="fa-solid fa-microchip icon-col"></i>Core
+                i5-12450H</span
+              >
+            </td>
+            <td>
+              <span class="spec-detail"
+                ><i class="fa-solid fa-vr-cardboard icon-col"></i>RTX 3050
+                (4GB)</span
+              >
+            </td>
+            <td>
+              <span class="spec-detail"
+                ><i class="fa-solid fa-memory icon-col"></i>8GB / 16GB</span
+              >
+            </td>
+            <td>
+              <div class="price">~R$ 4.700</div>
+              <div class="badge badge-neutral" style="margin-top: 4px">
+                Opção Segura
+              </div>
+            </td>
+          </tr>
+
+          <!-- IdeaPad -->
+          <tr class="row-card">
+            <td>
+              <span class="model-name">IdeaPad Gaming 3i</span>
+              <span class="spec-detail">Mobilidade & Discrição</span>
+            </td>
+            <td>
+              <span class="spec-detail"
+                ><i class="fa-solid fa-microchip icon-col"></i>Core
+                i5-12450H</span
+              >
+            </td>
+            <td>
+              <span class="spec-detail"
+                ><i class="fa-solid fa-vr-cardboard icon-col"></i>RTX 3050
+                (4GB)</span
+              >
+            </td>
+            <td>
+              <span class="spec-detail"
+                ><i class="fa-solid fa-memory icon-col"></i>8GB</span
+              >
+            </td>
+            <td>
+              <div class="price">~R$ 5.400</div>
+              <div class="badge badge-warn" style="margin-top: 4px">
+                Upgrade Recomendado
+              </div>
+            </td>
+          </tr>
+
+          <!-- ASUS TUF -->
+          <tr class="row-card">
+            <td>
+              <span class="model-name">Asus TUF Gaming A15</span>
+              <span class="spec-detail">Resistência Militar</span>
+            </td>
+            <td>
+              <span class="spec-detail"
+                ><i class="fa-solid fa-microchip icon-col"></i>Ryzen 7
+                7435HS</span
+              >
+            </td>
+            <td>
+              <span class="spec-detail"
+                ><i class="fa-solid fa-vr-cardboard icon-col"></i>RTX 3050
+                (4GB)</span
+              >
+            </td>
+            <td>
+              <span class="spec-detail"
+                ><i class="fa-solid fa-memory icon-col"></i>8GB</span
+              >
+            </td>
+            <td>
+              <div class="price">~R$ 5.500</div>
+              <div class="badge badge-warn" style="margin-top: 4px">
+                Upgrade Recomendado
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Footer -->
+      <div class="footer-note">
+        <div>
+          <strong>Nota:</strong> Todos os modelos permitem expansão de RAM até
+          32GB
+        </div>
+        <div>
+          <i class="fa-solid fa-check-circle" style="color: #0071e3"></i> Preços
+          baseados na média de varejo (12/02/2026)
+        </div>
+      </div>
+    </div>
+    <script src="js/navigator.js"></script>
+  </body>
+</html>

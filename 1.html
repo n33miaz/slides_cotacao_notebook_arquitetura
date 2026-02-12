@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Cotação de Notebooks</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset & Base */
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #1d1d1f; /* Fundo escuro para contraste na apresentação */
+        font-family: "Inter", sans-serif;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      /* Slide Container - Fixed Aspect Ratio 16:9 */
+      .slide-container {
+        width: 1280px;
+        height: 720px;
+        background-color: #ffffff;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Left Column: Title & Context */
+      .left-col {
+        width: 45%;
+        background-color: #f5f5f7;
+        padding: 80px 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Right Column: Criteria Grid */
+      .right-col {
+        width: 55%;
+        background-color: #ffffff;
+        padding: 80px 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+      }
+
+      /* Typography */
+      h1 {
+        font-size: 56px;
+        line-height: 1.1;
+        color: #1d1d1f;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        margin-bottom: 24px;
+      }
+
+      .subtitle {
+        font-size: 20px;
+        color: #86868b;
+        font-weight: 400;
+        line-height: 1.5;
+        margin-bottom: 40px;
+      }
+
+      .accent-bar {
+        width: 60px;
+        height: 6px;
+        background-color: #0071e3;
+        margin-bottom: 30px;
+        border-radius: 3px;
+      }
+
+      /* Criteria Cards */
+      .criteria-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .criteria-card {
+        padding: 24px;
+        border-radius: 16px;
+        background-color: #fbfbfd;
+        border: 1px solid #e5e5e5;
+        transition: transform 0.3s ease;
+      }
+
+      .criteria-card:hover {
+        border-color: #0071e3;
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .icon-box {
+        width: 40px;
+        height: 40px;
+        background-color: #eef6ff;
+        color: #0071e3;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        margin-bottom: 16px;
+      }
+
+      .card-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #1d1d1f;
+        margin-bottom: 8px;
+      }
+
+      .card-desc {
+        font-size: 13px;
+        color: #6e6e73;
+        line-height: 1.4;
+      }
+
+      /* Footer Info */
+      .footer-info {
+        position: absolute;
+        bottom: 40px;
+        left: 60px;
+        font-size: 12px;
+        color: #86868b;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      /* Decorative Background Elements */
+      .bg-circle {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(0, 113, 227, 0.03) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+        top: -100px;
+        right: -100px;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .highlight-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background-color: #1d1d1f;
+        color: #fff;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+        margin-top: auto;
+        width: fit-content;
+      }
+    </style>
+  </head>
+  <!-- data-next define manualmente o próximo slide, já que unificamos 1 e 2 -->
+  <body data-next="3.html">
+    <div class="slide-container">
+      <!-- Left Column -->
+      <div class="left-col">
+        <div class="accent-bar"></div>
+        <h1>
+          Cotação de Notebooks para<br /><span style="color: #6e6e73"
+            >Arquitetura</span
+          >
+        </h1>
+        <p class="subtitle">
+          Parametros de pesquisa focados em <strong>Renderização, Processamento e Durabilidade</strong>.
+        </p>
+
+        <div class="footer-info">
+          Atualizado: 12/02/2026 • Orçamento Médio: R$ 5.000
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-col">
+        <div class="bg-circle"></div>
+
+        <h2
+          style="
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #86868b;
+            margin-bottom: 24px;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+          "
+        >
+          Premissas Mandatórias
+        </h2>
+
+        <div class="criteria-grid">
+          <!-- Card 1 -->
+          <div class="criteria-card">
+            <div class="icon-box"><i class="fa-solid fa-vr-cardboard"></i></div>
+            <div class="card-title">GPU Dedicada (RTX)</div>
+            <div class="card-desc">
+              Essencial para renderização (Sketchup/V-Ray). Mínimo RTX 3050, ideal
+              RTX 4050 para DLSS 3.
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="criteria-card">
+            <div class="icon-box"><i class="fa-solid fa-microchip"></i></div>
+            <div class="card-title">CPU Série H/HS</div>
+            <div class="card-desc">
+              Processadores de alta voltagem para cálculos complexos de BIM
+              (Revit/AutoCAD) e geometria.
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="criteria-card">
+            <div class="icon-box"><i class="fa-solid fa-memory"></i></div>
+            <div class="card-title">RAM Expansível</div>
+            <div class="card-desc">
+              Mínimo de 16GB para multitarefa. Prioridade para modelos com slots
+              livres para upgrade futuro.
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="criteria-card">
+            <div class="icon-box"><i class="fa-brands fa-linux"></i></div>
+            <div class="card-title">Estratégia de Custo</div>
+            <div class="card-desc">
+              Aquisição com Linux para reduzir custo de
+              licença e focar em performance de hardware.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/navigator.js"></script>
+  </body>
+</html>
